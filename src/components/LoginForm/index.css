@@ -1,0 +1,20 @@
+.bg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  line-height: 48px;
+  background-color: transparent;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 10px 10px 5px rgb(248, 245, 245);
+  padding: 20px;
+}
+
+.web-logo {
+  margin-top: 30px;
+}
