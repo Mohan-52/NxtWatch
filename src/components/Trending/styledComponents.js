@@ -45,17 +45,24 @@ export const TrendHeading = styled.h1`
 
 export const BannerAndVideos = styled.div`
   width: 80%;
+  @media (max-width: 760px) {
+    width: 100%;
+  }
 `
 
 export const TrendingVideoUl = styled.ul`
   list-style-type: none;
-  padding: 20px;
-
+  gap: 10px;
   margin: 0;
+  padding-left: 0;
 `
 
 export const FailedImgs = styled.img`
   width: 400px;
+
+  @media (max-width: 760px) {
+    width: 300px;
+  }
 `
 
 export const VideosContainer = styled.div`

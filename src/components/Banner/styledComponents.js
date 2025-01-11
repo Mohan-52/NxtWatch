@@ -8,6 +8,7 @@ export const BannerConatiner = styled.div`
   max-height: 250px;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 `
 
 export const BannerTextCon = styled.div`
@@ -16,11 +17,19 @@ export const BannerTextCon = styled.div`
 `
 
 export const WebImg = styled.img`
-  width: 150px;
+  width: 120px;
+
+  @media (max-width: 768px) {
+    width: 100px;
+  }
 `
 
 export const Para = styled.p`
   font-size: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `
 
 export const OutlineBtn = styled.button`
@@ -29,6 +38,12 @@ export const OutlineBtn = styled.button`
   width: 100px;
   height: 40px;
   padding: 5px;
+
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 40px;
+    padding: 5px;
+  }
 `
 
 export const RemoveBtn = styled.button`

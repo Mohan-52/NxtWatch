@@ -5,6 +5,13 @@ import {RiPlayListAddLine as Save} from 'react-icons/ri'
 import {FaFire as Trend} from 'react-icons/fa'
 import {SiYoutubegaming as Gaming} from 'react-icons/si'
 
+const getBackgroundColor = (isDarkTheme, isActive) => {
+  if (isDarkTheme) {
+    return isActive ? '#383838' : 'transparent'
+  }
+  return isActive ? '#e2e8f0' : 'transparent'
+}
+
 export const HomeIcon = styled(Home)`
   color: ${props => (props.isActive ? ' #ff0000' : 'initial')};
 `
@@ -29,6 +36,14 @@ export const SideBarContainer = styled.div`
   position: sticky;
   top: 14vh;
   left: 0;
+
+  @media (max-width: 767px) {
+    display: ${props => (props.visibility ? 'flex' : 'none')};
+    width: 70%;
+    max-width: 200px;
+    position: fixed;
+    z-index: 1000;
+  }
 `
 
 export const RoutesContainer = styled(RouterLink)`
@@ -37,14 +52,8 @@ export const RoutesContainer = styled(RouterLink)`
   align-items: center;
   height: 35px;
   color: ${props => (props.isDarkTheme ? '#fff' : '#000')};
-  background-color: ${props =>
-    props.isDarkTheme
-      ? props.isActive
-        ? '#383838'
-        : 'transparent'
-      : props.isActive
-      ? '#e2e8f0'
-      : 'transparent'};
+  background-color: ${({isDarkTheme, isActive}) =>
+    getBackgroundColor(isDarkTheme, isActive)};
   text-decoration: none;
   padding: 10px;
 `

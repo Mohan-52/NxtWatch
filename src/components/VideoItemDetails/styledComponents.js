@@ -1,17 +1,29 @@
 import styled from 'styled-components'
-import ReactPlayer from 'react-player'
 
 export const HeroSecCon = styled.div`
   display: flex;
 `
 
-export const CustomReactPlayer = styled(ReactPlayer)`
+export const CustomReactPlayer = styled.div`
   width: 100%;
   height: auto;
+
+  .react-player {
+    width: 97% !important;
+    height: 50 !important;
+  }
+
+  @media (max-width: 760px) {
+    height: 30% !important;
+  }
 `
 
 export const DetailedVideoContainer = styled.div`
   width: 80%;
+
+  @media (max-width: 760px) {
+    width: 100%;
+  }
 `
 
 export const ViewsContainer = styled.div`

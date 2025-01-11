@@ -14,6 +14,11 @@ import {
   PopupText,
   ButtonGroup,
   PopupButton,
+  ProfileImg,
+  HamburgerIcon,
+  LogoutIcon,
+  ProfileLiCon,
+  HamLiCon,
 } from './styledComponents'
 
 const Header = props => {
@@ -38,7 +43,7 @@ const Header = props => {
   return (
     <SavedVideosContext.Consumer>
       {value => {
-        const {isDarkTheme, toggleTheme} = value
+        const {isDarkTheme, toggleTheme, toggleSideBar} = value
         return (
           <NavBar isDarkTheme={isDarkTheme}>
             <Link to="/">
@@ -59,15 +64,51 @@ const Header = props => {
                   />
                 </NavButtons>
               </StyledLi>
-              <StyledLi>
+              <ProfileLiCon>
                 <NavButtons>
-                  <ThemeImg
+                  <ProfileImg
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
                   />
                 </NavButtons>
-              </StyledLi>
-              <StyledLi>
+              </ProfileLiCon>
+              <HamLiCon>
+                <NavButtons onClick={toggleSideBar}>
+                  <HamburgerIcon isDarkTheme={isDarkTheme} />
+                </NavButtons>
+              </HamLiCon>
+              <HamLiCon>
+                <Popup
+                  modal
+                  trigger={
+                    <NavButtons>
+                      <LogoutIcon isDarkTheme={isDarkTheme} />
+                    </NavButtons>
+                  }
+                  position="center center"
+                  className="popup-content"
+                >
+                  {close => (
+                    <PopupContainer isDarkTheme={isDarkTheme}>
+                      <PopupText isDarkTheme={isDarkTheme}>
+                        Are you sure you want to logout?
+                      </PopupText>
+                      <ButtonGroup>
+                        <PopupButton onClick={close}>Cancel</PopupButton>
+                        <PopupButton
+                          confirm
+                          onClick={() => {
+                            handleLogout()
+                          }}
+                        >
+                          Confirm
+                        </PopupButton>
+                      </ButtonGroup>
+                    </PopupContainer>
+                  )}
+                </Popup>
+              </HamLiCon>
+              <ProfileLiCon>
                 <Popup
                   modal
                   trigger={
@@ -95,7 +136,7 @@ const Header = props => {
                     </PopupContainer>
                   )}
                 </Popup>
-              </StyledLi>
+              </ProfileLiCon>
             </Ul>
           </NavBar>
         )

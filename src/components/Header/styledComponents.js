@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import {GiHamburgerMenu as Hamburger} from 'react-icons/gi'
+import {FiLogOut as Logout} from 'react-icons/fi'
 
 export const NavBar = styled.nav`
   display: flex;
@@ -10,10 +12,15 @@ export const NavBar = styled.nav`
   top: 0;
   z-index: 1000;
   height: 14vh;
+  box-sizing: border-box;
 `
 
 export const WebLogo = styled.img`
   width: 120px;
+
+  @media (max-width: 760px) {
+    width: 100px;
+  }
 `
 
 export const Ul = styled.ul`
@@ -21,12 +28,19 @@ export const Ul = styled.ul`
   display: flex;
   padding-left: 0;
   align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  width: 22%;
+
+  max-width: 200px;
+
+  @media (max-width: 760px) {
+    width: 35%;
+    max-width: 150px;
+  }
 `
 
-export const StyledLi = styled.li`
-  margin: 0 10px;
-  text-decoration: none;
-`
+export const StyledLi = styled.li``
 
 export const NavButtons = styled.button`
   background-color: transparent;
@@ -38,6 +52,29 @@ export const ThemeImg = styled.img`
   width: 30px;
 `
 
+export const ProfileImg = styled.img`
+  width: 30px;
+`
+
+export const HamburgerIcon = styled(Hamburger)`
+  color: ${props => (props.isDarkTheme ? '#fff' : '#000')};
+  display: none;
+  font-size: 25px;
+
+  @media (max-width: 760px) {
+    display: block;
+  }
+`
+export const LogoutIcon = styled(Logout)`
+  color: ${props => (props.isDarkTheme ? '#fff' : '#000')};
+  display: none;
+  font-size: 25px;
+
+  @media (max-width: 760px) {
+    display: block;
+  }
+`
+
 export const OutlineBtn = styled.button`
   border: ${props =>
     props.isDarkTheme ? '1px solid #fff' : '1px solid #00306e'};
@@ -47,6 +84,10 @@ export const OutlineBtn = styled.button`
   height: 30px;
   border-radius: 8px;
   cursor: pointer;
+
+  @media (max-width: 760px) {
+    display: none;
+  }
 `
 
 export const PopupContainer = styled.div`
@@ -84,9 +125,21 @@ export const PopupButton = styled.button`
   font-weight: bold;
   cursor: pointer;
   background-color: ${props => (props.confirm ? '#3b82f6' : 'transparent')};
-  color: ${props =>
-    props.confirm ? '#ffffff' : props.isDarkTheme ? '#ffffff' : '#64748b'};
+  color: ${props => (props.confirm ? '#ffffff' : '#64748b')};
   &:hover {
     opacity: 0.8;
+  }
+`
+export const ProfileLiCon = styled(StyledLi)`
+  @media (max-width: 760px) {
+    display: none;
+  }
+`
+
+export const HamLiCon = styled(StyledLi)`
+  display: none;
+
+  @media (max-width: 760px) {
+    display: block;
   }
 `

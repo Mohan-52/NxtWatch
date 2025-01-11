@@ -14,6 +14,8 @@ import {
   Stats,
   ChannelName,
   StyledLink,
+  FlexDiv,
+  ProfileImg,
 } from './styledComponents'
 
 const ShowSavedVideos = () => (
@@ -40,21 +42,26 @@ const ShowSavedVideos = () => (
                 publishedAt,
                 id,
               } = video
-              const {name} = channel
+              const {name, profileImageUrl} = channel
+
               return (
                 <StyledLink to={`videos/${id}`}>
                   <VideoItemContainer>
                     <ThumbnailImg src={thumbnailUrl} alt="video thumbnail" />
-                    <DetailsContainer>
-                      <Title isDarkTheme={isDarkTheme}>{title}</Title>
-                      <ChannelName isDarkTheme={isDarkTheme}>
-                        {name}
-                      </ChannelName>
-                      <Stats isDarkTheme={isDarkTheme}>
-                        {viewCount} views {'\u2022'}{' '}
-                        {formatDistanceToNow(new Date(publishedAt))}
-                      </Stats>
-                    </DetailsContainer>
+
+                    <FlexDiv>
+                      <ProfileImg src={profileImageUrl} alt="channel logo" />
+                      <DetailsContainer>
+                        <Title isDarkTheme={isDarkTheme}>{title}</Title>
+                        <ChannelName isDarkTheme={isDarkTheme}>
+                          {name}
+                        </ChannelName>
+                        <Stats isDarkTheme={isDarkTheme}>
+                          {viewCount} views {'\u2022'}{' '}
+                          {formatDistanceToNow(new Date(publishedAt))}
+                        </Stats>
+                      </DetailsContainer>
+                    </FlexDiv>
                   </VideoItemContainer>
                 </StyledLink>
               )

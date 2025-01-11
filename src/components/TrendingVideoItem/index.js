@@ -7,6 +7,8 @@ import {
   Title,
   Stats,
   StyledLink,
+  FlexDiv,
+  ProfileImg,
 } from './styledComponents'
 import SavedVideosContext from '../../context/SavedVideosContext'
 
@@ -20,7 +22,7 @@ const TrendingVideoItem = props => {
     publishedAt,
     id,
   } = videoDetails
-  const {name} = channel
+  const {name, profileImageUrl} = channel
 
   return (
     <SavedVideosContext.Consumer>
@@ -30,14 +32,18 @@ const TrendingVideoItem = props => {
           <StyledLink to={`videos/${id}`}>
             <VideoItemContainer>
               <ThumbnailImg src={thumbnailUrl} alt="video thumbnail" />
-              <DetailsContainer>
-                <Title isDarkTheme={isDarkTheme}>{title}</Title>
-                <ChannelName isDarkTheme={isDarkTheme}>{name}</ChannelName>
-                <Stats isDarkTheme={isDarkTheme}>
-                  {viewCount} views {'\u2022'}{' '}
-                  {formatDistanceToNow(new Date(publishedAt))}
-                </Stats>
-              </DetailsContainer>
+
+              <FlexDiv>
+                <ProfileImg src={profileImageUrl} alt="channel logo" />
+                <DetailsContainer>
+                  <Title isDarkTheme={isDarkTheme}>{title}</Title>
+                  <ChannelName isDarkTheme={isDarkTheme}>{name}</ChannelName>
+                  <Stats isDarkTheme={isDarkTheme}>
+                    {viewCount} views {'\u2022'}{' '}
+                    {formatDistanceToNow(new Date(publishedAt))}
+                  </Stats>
+                </DetailsContainer>
+              </FlexDiv>
             </VideoItemContainer>
           </StyledLink>
         )

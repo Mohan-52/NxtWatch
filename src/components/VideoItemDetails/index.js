@@ -4,6 +4,7 @@ import {formatDistanceToNow} from 'date-fns'
 import {AiOutlineLike, AiOutlineDislike} from 'react-icons/ai'
 import {RiPlayListAddLine} from 'react-icons/ri'
 import Cookies from 'js-cookie'
+import ReactPlayer from 'react-player'
 import SavedVideosContext from '../../context/SavedVideosContext'
 
 import Header from '../Header'
@@ -95,23 +96,16 @@ class VideoItemDetails extends Component {
   )
 
   handleLikeBtn = () => {
-    this.setState(prevState => ({liked: !prevState.liked}))
+    this.setState(prevState => ({liked: !prevState.liked, disliked: false}))
   }
 
   handleDisLikeBtn = () => {
-    this.setState(prevState => ({disliked: !prevState.disliked}))
+    this.setState(prevState => ({disliked: !prevState.disliked, liked: false}))
   }
 
   successView = () => {
     const {videoDetails, liked, disliked, saved} = this.state
-    const {
-      title,
-      viewCount,
-      publishedAt,
-      thumbnailUrl,
-      channel,
-      description,
-    } = videoDetails
+    const {title, viewCount, publishedAt, channel, description} = videoDetails
     const {name, profileImageUrl, subscriberCount} = channel
     const videoURL = videoDetails.videoUrl
     console.log('triggered')
@@ -131,12 +125,16 @@ class VideoItemDetails extends Component {
               isDarkTheme={isDarkTheme}
               data-testid="videoItemDetails"
             >
-              <CustomReactPlayer url={videoURL} controls />
+              <CustomReactPlayer>
+                <ReactPlayer className="react-player" url={videoURL} controls />
+              </CustomReactPlayer>
               <Title isDarkTheme={isDarkTheme}>{title}</Title>
               <StatsContainer>
                 <ViewsAndTime isDarkTheme={isDarkTheme}>
                   <StatePara>{viewCount}</StatePara>
-                  <StatePara> {publishedAt}</StatePara>
+                  <StatePara>
+                    {formatDistanceToNow(new Date(publishedAt))}
+                  </StatePara>
                 </ViewsAndTime>
                 <LikesContainer>
                   <LikeButtons
@@ -161,7 +159,7 @@ class VideoItemDetails extends Component {
                     isActive={saved}
                   >
                     <RiPlayListAddLine />
-                    Save
+                    {saved ? 'saved' : 'save'}
                   </LikeButtons>
                 </LikesContainer>
               </StatsContainer>

@@ -7,9 +7,8 @@ export const StyledLink = styled(RouterLink)`
 `
 
 export const VideoItemLi = styled.li`
-  margin: 20px 10px 20px 0;
   padding: 10px;
-  width: 300px;
+  width: 280px;
 `
 
 export const ThumbnailContainer = styled.div`

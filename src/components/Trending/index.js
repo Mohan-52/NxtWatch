@@ -18,6 +18,7 @@ import {
   FailureHeading,
   FailurePara,
   RetryBtn,
+  FailedImgs,
 } from './styledComponents'
 
 import TrendingVideoItem from '../TrendingVideoItem'

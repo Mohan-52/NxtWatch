@@ -6,6 +6,10 @@ export const HeroSecCon = styled.div`
 
 export const BannerAndVideo = styled.div`
   width: 80%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 export const VideosContainer = styled.div`
@@ -45,10 +49,16 @@ export const VideosUl = styled.ul`
   display: flex;
   list-style-type: none;
   flex-wrap: wrap;
+  padding-left: 0;
+  gap: 10px;
 `
 
 export const FailedImgs = styled.img`
   width: 400px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+  }
 `
 
 export const HomeRouteContainer = styled.div`

@@ -21,18 +21,25 @@ export const NoVideosContainer = styled.div`
   height: 86vh;
   max-height: 1000px;
   flex-direction: column;
+  @media (max-width: 760px) {
+    width: 100%;
+  }
 `
 
 export const NoVideoImg = styled.img`
   width: 400px;
+
+  @media (max-width: 760px) {
+    width: 300px;
+  }
 `
 
 export const NoVideoHeading = styled.h1`
   color: ${props => (props.isDarkTheme ? '#fff' : ' #000')};
-  height: 25px;
+  font-size: 25px;
 `
 
 export const NoSavedPara = styled.p`
   color: ${props => (props.isDarkTheme ? '#64748b' : ' #000')};
-  color: #616e7c;
+  width: 90%;
 `

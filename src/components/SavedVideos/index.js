@@ -1,4 +1,3 @@
-import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import SavedVideosContext from '../../context/SavedVideosContext'
@@ -6,7 +5,6 @@ import SavedVideosContext from '../../context/SavedVideosContext'
 import ShowSavedVideos from '../ShowSavedVideos'
 
 import {
-  ViewsContainer,
   HeroSection,
   NoVideosContainer,
   NoVideoHeading,

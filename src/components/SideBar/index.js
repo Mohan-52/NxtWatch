@@ -23,9 +23,9 @@ const SideBar = props => {
   return (
     <SavedVideosContext.Consumer>
       {value => {
-        const {isDarkTheme} = value
+        const {isDarkTheme, showSideBar} = value
         return (
-          <SideBarContainer isDarkTheme={isDarkTheme}>
+          <SideBarContainer isDarkTheme={isDarkTheme} visibility={showSideBar}>
             <div>
               <RoutesContainer
                 to="/"

@@ -13,7 +13,7 @@ import SavedVideosContext from './context/SavedVideosContext'
 import './App.css'
 
 class App extends Component {
-  state = {savedVideoList: [], isDarkTheme: false}
+  state = {savedVideoList: [], isDarkTheme: false, showSideBar: false}
 
   addToSavedList = videoDetails => {
     const {savedVideoList} = this.state
@@ -32,8 +32,12 @@ class App extends Component {
     this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
   }
 
+  toggleSideBar = () => {
+    this.setState(prevState => ({showSideBar: !prevState.showSideBar}))
+  }
+
   render() {
-    const {savedVideoList, isDarkTheme} = this.state
+    const {savedVideoList, isDarkTheme, showSideBar} = this.state
     console.log(isDarkTheme)
 
     return (
@@ -43,6 +47,8 @@ class App extends Component {
           addToSavedList: this.addToSavedList,
           isDarkTheme,
           toggleTheme: this.toggleTheme,
+          showSideBar,
+          toggleSideBar: this.toggleSideBar,
         }}
       >
         <Switch>
